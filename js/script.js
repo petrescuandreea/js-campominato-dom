@@ -34,15 +34,21 @@ let gridContainer = document.getElementById("grid");
 let levelChoice = parseInt(prompt ("Da quale livello vuoi partire: 1-facile, 2-intermedio o 3-difficile ?"));
 console.log(levelChoice);
 
-
+let  difficulty = 100;
 if(levelChoice === 1) {
     // griglia 10 x 10
+    difficulty = 100;
     generateGrid(100, "square-l1" );
+   
+
 }else if(levelChoice === 2) {
     // griglia 9 x 9 
+    difficulty = 81;
     generateGrid(81, "square-l2" );
+
 } else if(levelChoice === 3) {
     // griglia 7 x 7 
+    difficulty = 49;
     generateGrid(49, "square-l3" );
 }
 
@@ -55,7 +61,7 @@ function generateGrid(blocksNumber, baseClass) {
     
         node.addEventListener("click", 
             function(){
-                node.classList.add("clicked-true", "mine");
+                node.classList.add("clicked-true");
                 node.append(i);
             }
 
@@ -70,4 +76,16 @@ function generateGrid(blocksNumber, baseClass) {
         gridContainer.append(node);
     } 
 }
+
+
+
+// array di 16 numeri(bombe) casuali univoci 
+let bombsArray = [];
+ while (bombsArray.length < 16) {
+    let bomb = Math.floor(Math.random()*(difficulty) + 1);
+    if (bombsArray.includes(bomb) === false) {
+        bombsArray.push(bomb);
+    }
+    console.log(bombsArray);
+ }
     
