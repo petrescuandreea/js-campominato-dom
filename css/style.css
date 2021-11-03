@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #a39baa;
+}
+
+h1 {
+    font-size: 40px;
+    margin: 30px;
+    text-align: center;
+}
+
+.square-container {
+    width: 500px;
+    height: 500px;
+    margin: 40px auto;
+}
+
+.square {
+    float: left;
+    border: 2px solid lightblue;
+    cursor: pointer;
+}
+
+.square-l1 {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.square-l2 {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+.square-l3 {
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
+
+.square.clicked-true {
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
