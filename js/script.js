@@ -26,7 +26,8 @@ altrimenti la cella cliccata si colora di azzurro e l’utente può continuare a
 
 // variabili utili 
 let gridContainer = document.getElementById("grid");
-// var click = 0 ; variabile utile per tenere traccia dei click fatti dall'utente
+// variabile utile per tenere traccia dei click fatti dall'utente 
+let click = 0 ; 
 
 
 
@@ -62,7 +63,8 @@ function generateGrid(blocksNumber, baseClass) {
 
         node.addEventListener("click", 
             function(){
-                
+                let countClick = ++click;
+                console.log("numero di click" , countClick);
                 node.classList.add("clicked-true");
                 node.append(i);
                 node.getAttribute("id");
