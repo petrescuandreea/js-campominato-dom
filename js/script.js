@@ -1,25 +1,34 @@
 /*
 
-TRACCIA: L’utente indica un livello di difficoltà in base al quale viene generata una griglia di gioco quadrata,
-in cui ogni cella contiene un numero tra quelli compresi in un range:
+TRACCIA: L’utente indica un livello di difficoltà in base al quale viene generata una griglia di gioco quadrata, in cui ogni cella contiene un numero tra quelli compresi in un range:
 con difficoltà 1 => tra 1 e 100
 con difficoltà 2 => tra 1 e 81
 con difficoltà 3 => tra 1 e 49
-Quando l’utente clicca su ogni cella, la cella cliccata si colora di azzurro (o simili, l’importante è dare all’utente il feedback che ha scoperto una casella che rimarrà scoperta, con il numero relativo).
+Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe.
+I numeri nella lista delle bombe non possono essere duplicati.
+In seguito l’utente clicca su ogni cella:
+se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba - la cella si colora di rosso e la partita termina,
+altrimenti la cella cliccata si colora di azzurro e l’utente può continuare a cliccare sulle altre celle.
 
 */
 
 
 // 1. chiedo all'utente di scegliere il livello di difficoltà : 1, 2 o 3 => let levelChoice = prompt ()
     // 1.1 se l'utente sceglie livello 1 , genero una griglia di numeri con range 1-100/ griglia 10 x 10 
+        // genero un array di 16 numeri(bombe) nel range di difficoltà
+            // i numeri devono essere casuali 
+            // i numeri devono essere univoci
     // 1.2 se l'utente sceglie livello 2 , genero una griglia di numeri con range 1-81/ griglia 9 x 9 
     // 1.3 se l'utente sceglie livello 3 , genero una griglia di numeri con range 1-49/ griglia 7 x 7
 
 // 3. creo funzione di callback per cambiare il colore della cella cliccata 
 
 
-
+// variabili utili 
 let gridContainer = document.getElementById("grid");
+// var click = 0 ; variabile utile per tenere traccia dei click fatti dall'utente
+
+
 
 // chiedo all'utente di scegliere il livello di difficoltà : 1, 2 o 3 => let levelChoice = prompt ()
 let levelChoice = parseInt(prompt ("Da quale livello vuoi partire: 1-facile, 2-intermedio o 3-difficile ?"));
@@ -49,6 +58,13 @@ function generateGrid(blocksNumber, baseClass) {
                 node.classList.add("clicked-true", "mine");
                 node.append(i);
             }
+
+            // quando l'utente clicca sul quadrato faccio un check sulle bombe
+                    //se il numero che corrisponde al quadrato cliccato non è nelle bombe
+                        //vado ad incrementare il punteggio => var click = ++click
+                        
+                    //altrimenti (se il numero che corrisponde al quadratino cliccato è nelle bombe)
+                        //il gioco finisce e faccio vedere l'output
         );
 
         gridContainer.append(node);
