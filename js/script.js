@@ -26,6 +26,7 @@ altrimenti la cella cliccata si colora di azzurro e l’utente può continuare a
 
 // variabili utili 
 let gridContainer = document.getElementById("grid");
+let gameResult = document.getElementById("end-game");
 // variabile utile per tenere traccia dei click fatti dall'utente 
 let click = 0 ; 
 
@@ -72,12 +73,15 @@ function generateGrid(blocksNumber, baseClass) {
                 if(bombsArray.includes(i)) {
                     node.classList.remove("clicked-true");
                     node.classList.add("bomb");
-                    console.log("hai perso");
+                    gameResult.innerHTML = `Oops! Hai perso :-(. Hai azzeccato ${countClick} tentativi. Riprova.`
+                    // console.log("hai perso");
+                } else {
+                    countClick;
                 }
                
             }
 
-        );
+        )
 
         gridContainer.append(node);
     } 
