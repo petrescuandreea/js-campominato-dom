@@ -58,19 +58,23 @@ function generateGrid(blocksNumber, baseClass) {
 
         let node = document.createElement("div");
         node.classList.add("square", baseClass);
-    
+        node.setAttribute("id", i);
+
         node.addEventListener("click", 
             function(){
+                
                 node.classList.add("clicked-true");
                 node.append(i);
+                node.getAttribute("id");
+
+                if(bombsArray.includes(i)) {
+                    node.classList.remove("clicked-true");
+                    node.classList.add("bomb");
+                    console.log("hai perso");
+                }
+               
             }
 
-            // quando l'utente clicca sul quadrato faccio un check sulle bombe
-                    //se il numero che corrisponde al quadrato cliccato non è nelle bombe
-                        //vado ad incrementare il punteggio => var click = ++click
-                        
-                    //altrimenti (se il numero che corrisponde al quadratino cliccato è nelle bombe)
-                        //il gioco finisce e faccio vedere l'output
         );
 
         gridContainer.append(node);
