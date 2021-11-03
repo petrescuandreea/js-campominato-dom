@@ -17,7 +17,7 @@ h1 {
 .square-container {
     width: 500px;
     height: 500px;
-    margin: 40px auto;
+    margin: 40px auto 0 auto;
 }
 
 .square {
@@ -53,4 +53,10 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#end-game {
+    text-align: center;
+    font-size: 20px;
+    margin: 20px;
 }
